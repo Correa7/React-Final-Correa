@@ -1,0 +1,91 @@
+.ItemDetailContainer {
+  margin: 60px;
+}
+.card-detail {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.tarjeta-body {
+  width: 50%;
+}
+.detail {
+  width: 90%;
+  transition: all 0.25s;
+  margin: 100px;
+}
+
+.card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+}
+.card-img {
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-img img {
+  width: 300px;
+  height: 350px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+}
+
+.cardBody-cart {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+}
+
+.precio {
+  margin-top: 10px;
+}
+
+.btn-secondary {
+  height: 35px;
+  font-size: 15px;
+}
+
+.col-lg-4,
+.col-lg-6,
+.col-lg-8,
+.col-lg-12 {
+  margin-top: 10px;
+}
+.click-container {
+  width: 300px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.click-button {
+  height: 38px;
+  border: solid rgb(78, 185, 217);
+  border-radius: 10%;
+  min-width: 150px;
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.click-h5 {
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 8px;
+}
+.nav-link {
+  color: rgb(255, 0, 0);
+  margin-right: 10px;
+  padding: 0%;
+}

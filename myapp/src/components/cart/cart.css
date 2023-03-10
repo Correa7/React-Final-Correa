@@ -1,0 +1,70 @@
+.box-element-2 {
+  box-shadow: hsl(0, 0%, 80%) 0 0 16px;
+  background-color: #fff;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+.tabla {
+  margin: 5px;
+}
+
+.row-image {
+  max-width: 70px;
+  max-height: 100px;
+}
+.cart-row {
+  display: flex;
+  align-items: flex-stretch;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #ececec;
+  margin-bottom: 20px;
+}
+.quantity {
+  display: inline-block;
+  font-weight: 700;
+  padding-right: 10px;
+}
+.chg-quantity { 
+  width: 12px;
+  cursor: pointer;
+  display: block;
+  margin-top: 5px;
+  transition: 0.1s;
+}
+.chg-quantity:hover {
+  opacity: 0.6;
+}
+.btn {
+  transition: all 0.25s;
+}
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px 2px rgba(15, 15, 15, 0.2);
+  color: #ed1414;
+}
+.empty{
+  min-height:300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.garbage-container{
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+.garbage {
+  width: 20px;
+  height: 20px;
+  transition: all 0.25s;
+
+}
+.garbage:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px 2px rgba(15, 15, 15, 0.2);
+  transform: scale(1.3);
+  
+ 
+}
