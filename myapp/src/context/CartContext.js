@@ -9,13 +9,13 @@ const CartContextProvider = ({ children }) => {
     let newCart = cart.filter((prod) => prod.id !== Item.id);
     newCart.push({
       ...Item,
-      unidades: newCantidad,
-      subtotal: Item.precio * newCantidad,
+      quantity: newCantidad,
+      subtotal: Item.price * newCantidad,
     });
     setCart(newCart);
   };
   const clearCart = () => {
-    setCart([]);
+    setCart([]); 
   };
   const deleteItem = (id) => {
     setCart(cart.filter((product) => product.id !== id));

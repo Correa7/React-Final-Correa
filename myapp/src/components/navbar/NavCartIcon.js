@@ -3,9 +3,9 @@ import { useModal } from "../../Hooks/useModal";
 import Modal from "../modals/Modal";
 import Cart from "../cart/Cart";
 
-const NavCartIcon = ({ cantidad }) => {
+const NavCartIcon = ({ quantity }) => {
   const [isOpen1, openModal1, closeModal1] = useModal(false);
-  let quantity = cantidad 
+  let quant = quantity
   return (
     <div className="form-inline my-2 my-lg-0">
       <div className="cartContainer">
@@ -15,10 +15,10 @@ const NavCartIcon = ({ cantidad }) => {
         <Modal isOpen={isOpen1} closeModal={closeModal1}>
           <Cart />
         </Modal>
-        <div className="cart-items">{ quantity === 0 ? <p></p> : quantity }</div>
+        <div className="cart-items">{ quant === 0 ? <p></p> : quant }</div>
       </div>
     </div>
   );
 };
 
-export default NavCartIcon;
+export default NavCartIcon; 

@@ -7,21 +7,21 @@ import { CartContext } from "../../context/CartContext";
 
 export const CartDetail = ({ prod }) => {
   const { addCart, deleteItem } = useContext(CartContext);
-  const { unidades, stock, id } = prod;
+  const { quantity, stock, id } = prod;
 
   const addItem = () => {
-    let newItem = unidades + 1;
+    let newItem = quantity + 1;
 
-    if (unidades >= stock) {
+    if (quantity >= stock) {
       addCart(prod, stock);
     } else {
       addCart(prod, newItem);
     }
   };
-  const subtractItem = () => {
-    let newItem = unidades - 1;
+  const subtractItem = () => { 
+    let newItem = quantity - 1;
     addCart(prod, newItem);
-    if (unidades <= 1) {
+    if (quantity <= 1) {
       deleteItem(id);
     } else {
       addCart(prod, newItem);
@@ -34,16 +34,16 @@ export const CartDetail = ({ prod }) => {
   return (
     <div className="cart-row">
       <div style={{ flex: "1" }}>
-        <img className="row-image" src={prod.url} alt={prod.nombre} />
+        <img className="row-image" src={prod.url} alt={prod.title} />
       </div>
       <div style={{ flex: "1" }}>
-        <p className="cart-p">{prod.nombre}</p>
+        <p className="cart-p">{prod.title}</p>
       </div>
       <div style={{ flex: "1" }}>
-        <p className="cart-p">${prod.precio}</p>
+        <p className="cart-p">${prod.price}</p>
       </div>
       <div style={{ flex: "2" }}>
-        <p className="quantity">{prod.unidades}</p>
+        <p className="quantity">{prod.quantity}</p>
         <div className="quantity">
           <img
             onClick={addItem}

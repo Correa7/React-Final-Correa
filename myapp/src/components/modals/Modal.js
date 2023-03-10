@@ -6,8 +6,8 @@ import { CartContext } from "../../context/CartContext";
 const Modal = ({ children, isOpen, closeModal }) => {
   const { cart, clearCart } = useContext(CartContext);
 
-  const cantidad = cart.reduce((acc, curr) => {
-    return acc + curr.unidades;
+  const quantity = cart.reduce((acc, curr) => {
+    return acc + curr.quantity;
   }, 0);
   const total = cart.reduce((acc, curr) => {
     return acc + curr.subtotal;
@@ -36,7 +36,7 @@ const Modal = ({ children, isOpen, closeModal }) => {
           
             <button className="btn">Finalizar Compra</button>
             <h6>
-              <strong>Items: {cantidad} </strong>
+              <strong>Items: {quantity} </strong>
             </h6>
             <h6>
               <strong>Total: {total} </strong>

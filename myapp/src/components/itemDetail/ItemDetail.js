@@ -1,23 +1,25 @@
 import "./ItemDetail.css";
 import ItemCount from "./ItemCount";
 
-const ItemDetail = ({ nombre, src, stock, precio, id, categoria }) => {
+const ItemDetail = ({ title, url, stock, price, id, category, num }) => {
   let data = {
     id: id,
-    nombre: nombre,
-    url: src,
-    precio: precio,
+    title: title,
+    url: url, 
+    price: price,
     stock: stock,
-    categoria: categoria,
+    category: category,
+    num: num,
   };
+ 
   return (
     <div key={id} className="card-detail">
       <div className="card-img">
         <div>
-          <img src={src} alt={nombre} />
+          <img src={url} alt={title} />
         </div>
         <div>
-          <h5 className="card-title">{nombre}</h5>
+          <h5 className="card-title">{title}</h5>
           <br />
           <p>
             Lorem ipsum lkakkn slfkb nlknrh goarhg oaihgo aifnokfnaow ifbno
@@ -28,7 +30,7 @@ const ItemDetail = ({ nombre, src, stock, precio, id, categoria }) => {
       <div className="cardBody-cart">
         <div>
           <h6 className="precio">
-            <strong>Precio: $ {precio}</strong>
+            <strong>Precio: $ {price}</strong>
             <br />
           </h6>
           <p className="card-text">

@@ -1,5 +1,5 @@
 import "./navbar.css";
-import CartIcon from "./NavCartIcon";
+import NavCartIcon from "./NavCartIcon";
 import NavLogo from "./NavLogo";
 import Logo from "../../img/logo.png";
 import { useContext } from "react";
@@ -9,11 +9,11 @@ import { CartContext } from "../../context/CartContext";
 const NavBar = () => {
   const { cart } = useContext(CartContext);
 
-  const cantidad = cart.reduce((acc, curr) => {
-    return acc + curr.unidades;
+  const quantity = cart.reduce((acc, curr) => {
+    return acc + curr.quantity;
   }, 0);
 
-  const categoria = { 
+  const category = { 
     pintura: "Pintura",
     dibujo: "Dibujo",
     escultura: "Escultura",
@@ -44,7 +44,7 @@ const NavBar = () => {
             </li>
             <li className="nav-item">
               <NavLink
-                to={`/categoria/${categoria.pintura}`}
+                to={`/categoria/${category.pintura}`}
                 className="nav-link"
               >
                 Pinturas
@@ -52,7 +52,7 @@ const NavBar = () => {
             </li>
             <li className="nav-item">
               <NavLink
-                to={`/categoria/${categoria.escultura}`}
+                to={`/categoria/${category.escultura}`}
                 className="nav-link"
               >
                 Esculturas{" "}
@@ -60,7 +60,7 @@ const NavBar = () => {
             </li>
             <li className="nav-item">
               <NavLink
-                to={`/categoria/${categoria.dibujo}`}
+                to={`/categoria/${category.dibujo}`}
                 className="nav-link"
               >
                 Dibujos
@@ -68,7 +68,7 @@ const NavBar = () => {
             </li>
             <li className="nav-item">
               <NavLink
-                to={`/categoria/${categoria.grabado}`}
+                to={`/categoria/${category.grabado}`} 
                 className="nav-link"
               >
                 Grabados
@@ -79,7 +79,7 @@ const NavBar = () => {
         <div className="cartContainer">
           <div className="collapse navbar-collapse">
             <ul className="navbar-nav">
-              <CartIcon cantidad={cantidad} />
+              <NavCartIcon quantity={quantity} />
             </ul>
           </div>
         </div>

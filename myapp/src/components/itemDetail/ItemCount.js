@@ -9,7 +9,7 @@ const ItemCount = ({ data }) => {
   
   const [click, pulsar] = useState(1);
 
-  const Sumar = () => {
+  const Sumar = () => { 
     if (click < data.stock) {
       pulsar(click + 1);
     }

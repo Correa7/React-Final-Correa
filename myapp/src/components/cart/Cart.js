@@ -6,7 +6,6 @@ import { CartDetail } from "./CartDetail";
 
 export const Cart = () => {
   const { cart } = useContext(CartContext);
-
   if (cart.length === 0){
     return <div className='empty'>
         <h5>No hay Items en el Carrito</h5>
@@ -39,7 +38,7 @@ export const Cart = () => {
               </div>
             </div>
             {cart
-              .sort((x, y) => x.id - y.id)
+              .sort((x, y) => x.num - y.num)
               .map((prod) => (
                 <div key={prod.id}>
                   <CartDetail prod={prod} />
