@@ -14,12 +14,22 @@ const CartContextProvider = ({ children }) => {
     });
     setCart(newCart);
   };
-  const clearCart = () => {
-    setCart([]); 
+
+  const clearCart = () => { 
+    setCart([]);
   };
+
   const deleteItem = (id) => {
     setCart(cart.filter((product) => product.id !== id));
   };
+
+  const quantity = cart.reduce((acc, curr) => {
+    return acc + curr.quantity;
+  }, 0);
+
+  const total = cart.reduce((acc, curr) => {
+    return acc + curr.subtotal;
+  }, 0);
   return (
     <>
       <CartContext.Provider
@@ -28,6 +38,8 @@ const CartContextProvider = ({ children }) => {
           addCart,
           clearCart,
           deleteItem,
+          quantity,
+          total,
         }}
       >
         {children}

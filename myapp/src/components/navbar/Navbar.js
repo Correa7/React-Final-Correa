@@ -7,13 +7,9 @@ import { NavLink } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
 
 const NavBar = () => {
-  const { cart } = useContext(CartContext);
+  const { quantity } = useContext(CartContext);
 
-  const quantity = cart.reduce((acc, curr) => {
-    return acc + curr.quantity;
-  }, 0);
-
-  const category = { 
+  const category = {
     pintura: "Pintura",
     dibujo: "Dibujo",
     escultura: "Escultura",
@@ -21,22 +17,12 @@ const NavBar = () => {
   };
 
   return (
-    <div className="nav-bar">
-      <nav className="navbar navbar-expand-lg navbar-light">
+  
+      <nav className="navbar">
         <NavLogo src={Logo} alt={"Jasmina-Logo"} />
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div id="ul" className="collapse navbar-collapse">
-          <ul className="navbar-nav">
+
+        <div id="ul">
+          <ul className="nav-ul">
             <li className="nav-item">
               <NavLink to={"/"} className="nav-link">
                 Home
@@ -57,7 +43,7 @@ const NavBar = () => {
               >
                 Esculturas{" "}
               </NavLink>
-            </li>
+            </li> 
             <li className="nav-item">
               <NavLink
                 to={`/categoria/${category.dibujo}`}
@@ -68,7 +54,7 @@ const NavBar = () => {
             </li>
             <li className="nav-item">
               <NavLink
-                to={`/categoria/${category.grabado}`} 
+                to={`/categoria/${category.grabado}`}
                 className="nav-link"
               >
                 Grabados
@@ -77,14 +63,14 @@ const NavBar = () => {
           </ul>
         </div>
         <div className="cartContainer">
-          <div className="collapse navbar-collapse">
-            <ul className="navbar-nav">
+          <div>
+            <ul className="nav-ul">
               <NavCartIcon quantity={quantity} />
             </ul>
-          </div>
+          </div> 
         </div>
       </nav>
-    </div>
+   
   );
 };
 export default NavBar;

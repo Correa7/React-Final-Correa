@@ -1,31 +1,36 @@
 import "./ItemDetailContainer.css";
 import ItemDetail from "../../components/itemDetail/ItemDetail";
-import { useEffect, useState } from 'react';
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import { useEffect, useState } from "react";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
 import { useParams } from "react-router-dom";
 
 const ItemDetailContainer = () => {
   const { id } = useParams();
-  const [items, setItems] = useState([]);
+  const [Items, setItems] = useState([]);
 
   useEffect(() => {
     const db = getFirestore();
-    const itemsCollection = collection(db, 'Items');
+    const itemsCollection = collection(db, "Items");
 
-    getDocs(itemsCollection).then((snapshotList) => {
+    const q = query(itemsCollection, where("num", "==", Number(id)));
+    getDocs(q).then((snapshotList) => {
       const docs = snapshotList.docs.map((snapshot) => ({
         id: snapshot.id,
         ...snapshot.data(),
       }));
       setItems(docs);
     });
-  }, []);
-
-  let itemsFilter = items.filter((p) => p.id === id);
+  }, [id]);
 
   return (
     <div>
-      {itemsFilter.map((prod) => (
+      {Items.map((prod) => (
         <div key={prod.id} className="card-detail-container">
           <ItemDetail
             title={prod.title}

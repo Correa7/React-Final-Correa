@@ -1,7 +1,7 @@
 import "./cart.css";
 import Up from "../../img/arrow-up.png";
 import Down from "../../img/arrow-down.png";
-import Garbage from '../../img/garbage.png'
+import Garbage from "../../img/garbage.png";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 
@@ -9,7 +9,7 @@ export const CartDetail = ({ prod }) => {
   const { addCart, deleteItem } = useContext(CartContext);
   const { quantity, stock, id } = prod;
 
-  const addItem = () => {
+  const addItem = () => { 
     let newItem = quantity + 1;
 
     if (quantity >= stock) {
@@ -18,7 +18,8 @@ export const CartDetail = ({ prod }) => {
       addCart(prod, newItem);
     }
   };
-  const subtractItem = () => { 
+
+  const subtractItem = () => {
     let newItem = quantity - 1;
     addCart(prod, newItem);
     if (quantity <= 1) {
@@ -27,6 +28,7 @@ export const CartDetail = ({ prod }) => {
       addCart(prod, newItem);
     }
   };
+
   const delItem = () => {
     deleteItem(id);
   };
@@ -48,13 +50,14 @@ export const CartDetail = ({ prod }) => {
           <img
             onClick={addItem}
             className="chg-quantity update-cart "
-            src={Up} alt='arrow-up'
+            src={Up}
+            alt="arrow-up"
           />
-
           <img
             onClick={subtractItem}
             className="chg-quantity update-cart "
-            src={Down} alt='arrow-down'
+            src={Down}
+            alt="arrow-down"
           />
         </div>
       </div>
@@ -62,9 +65,12 @@ export const CartDetail = ({ prod }) => {
         <p className="cart-p">${prod.subtotal}</p>
       </div>
       <div style={{ flex: "1" }}>
-       
-          <img className="garbage" onClick={delItem} src={Garbage} alt='garbage'/>
-        
+        <img
+          className="garbage"
+          onClick={delItem}
+          src={Garbage}
+          alt="garbage"
+        />
       </div>
     </div>
   );

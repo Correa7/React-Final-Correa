@@ -1,18 +1,17 @@
 import "./ItemListContainer.css";
 import ItemList from "../../components/itemList/ItemList";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from 'react';
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import { useEffect, useState } from "react";
+import { getFirestore, collection, getDocs } from "firebase/firestore";
 
-
-const ItemListContainer = () => {
+const ItemListContainer = () => { 
   const { category } = useParams();
- 
+
   const [items, setItems] = useState([]);
 
   useEffect(() => {
     const db = getFirestore();
-    const itemsCollection = collection(db, 'Items');
+    const itemsCollection = collection(db, "Items");
 
     getDocs(itemsCollection).then((snapshotList) => {
       const docs = snapshotList.docs.map((snapshot) => ({
@@ -30,5 +29,5 @@ const ItemListContainer = () => {
       </div>
     </>
   );
-}; 
+};
 export default ItemListContainer;

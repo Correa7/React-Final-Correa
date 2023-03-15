@@ -3,7 +3,7 @@ import Item from "./Item";
 import { Link } from "react-router-dom";
 
 
-const ItemList = ({category, items})=> {
+const ItemList = ({category, items})=> { 
 
   let itemsFilter = items.filter((p) => p.categoryId === category);
 
@@ -16,6 +16,7 @@ const ItemList = ({category, items})=> {
         price={prod.price}
         url={prod.url}
         id={prod.id}
+        num={prod.num}
       />
     ));
   } else {
@@ -33,7 +34,7 @@ const ItemList = ({category, items})=> {
             <strong>Precio: $ {prod.price}</strong>
           </h6>
           <button className="btn btn-secondary me-md-2">
-            <Link className="Link" to={`/detail/${prod.id}`}>
+            <Link className="Link" to={`/detail/${prod.num}`}>
               View
             </Link>
           </button>

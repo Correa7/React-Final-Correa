@@ -5,13 +5,13 @@ const ItemDetail = ({ title, url, stock, price, id, category, num }) => {
   let data = {
     id: id,
     title: title,
-    url: url, 
+    url: url,
     price: price,
     stock: stock,
     category: category,
     num: num,
   };
- 
+
   return (
     <div key={id} className="card-detail">
       <div className="card-img">

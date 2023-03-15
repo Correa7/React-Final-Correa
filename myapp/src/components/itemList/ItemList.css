@@ -18,7 +18,7 @@
 }
 
 .image {
-  max-width: 200px;
+  max-width: 220px;
   max-height: 260px;
   box-shadow:none;
 }
@@ -66,3 +66,43 @@
 .Link:hover {
   color: #e3ebe3;
 }
+
+@media screen and (max-width:426px) {
+  .card{
+    width: 200px;
+    transition: all 0.25s;
+    padding: 5px;
+  }
+  .card-img {
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    padding:10px;
+  }
+  
+  .image {
+    max-width: 170px;
+    max-height: 200px;
+  
+  }
+  
+  .card h5 {
+    padding-left: 10px;
+    margin-top:10px;
+  }
+  
+  .card-text {
+    margin-left: 10px;
+  }
+  
+  .cardBody {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10%;
+    padding-right: 2%;
+    margin-bottom: 5px;
+  }
+} 

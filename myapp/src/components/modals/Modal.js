@@ -1,24 +1,17 @@
 import "./modal.css";
 import React, { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
-
+import { Link } from "react-router-dom";
 
 const Modal = ({ children, isOpen, closeModal }) => {
-  const { cart, clearCart } = useContext(CartContext);
-
-  const quantity = cart.reduce((acc, curr) => {
-    return acc + curr.quantity;
-  }, 0);
-  const total = cart.reduce((acc, curr) => {
-    return acc + curr.subtotal;
-  }, 0);
+  const { cart, clearCart, quantity, total } = useContext(CartContext);
 
   const modalContainerClick = (e) => e.stopPropagation();
 
-  if (cart.length === 0) {
+  if (cart.length === 0) { 
     return (
       <div className={`modal ${isOpen && "is-open"}`} onClick={closeModal}>
-        <div className="modal-container" onClick={modalContainerClick}>
+        <div className="modal-container">
           <div className="div-btn2">
             <button className="btn" onClick={closeModal}>
               Cerrar
@@ -27,14 +20,19 @@ const Modal = ({ children, isOpen, closeModal }) => {
           <div className="children">{children}</div>
         </div>
       </div>
-  );
+    );
   } else {
     return (
       <div className={`modal ${isOpen && "is-open"}`} onClick={closeModal}>
         <div className="modal-container" onClick={modalContainerClick}>
           <div className="div-btn">
-          
-            <button className="btn">Finalizar Compra</button>
+            <Link
+              className="btn btn-secondary"
+              to="/checkout"
+              onClick={closeModal}
+            >
+              Finalizar Compra
+            </Link>
             <h6>
               <strong>Items: {quantity} </strong>
             </h6>
@@ -53,6 +51,5 @@ const Modal = ({ children, isOpen, closeModal }) => {
       </div>
     );
   }
-  
 };
 export default Modal;

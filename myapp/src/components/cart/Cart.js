@@ -3,16 +3,16 @@ import { CartContext } from "../../context/CartContext";
 import "./cart.css";
 import { CartDetail } from "./CartDetail";
 
-
 export const Cart = () => {
   const { cart } = useContext(CartContext);
-  if (cart.length === 0){
-    return <div className='empty'>
-        <h5>No hay Items en el Carrito</h5>
-    
 
-    </div>
-    }else {
+  if (cart.length === 0) {
+    return (
+      <div className="empty">
+        <h5>No hay Items en el Carrito</h5>
+      </div>
+    );
+  } else {
     return (
       <div>
         <div className="col-lg-12">
@@ -36,7 +36,7 @@ export const Cart = () => {
               <div className="tabla" style={{ flex: "1" }}>
                 <strong>DelItem</strong>
               </div>
-            </div>
+            </div> 
             {cart
               .sort((x, y) => x.num - y.num)
               .map((prod) => (
@@ -49,6 +49,5 @@ export const Cart = () => {
       </div>
     );
   }
-
 };
 export default Cart;

@@ -5,7 +5,7 @@ import Cart from "../cart/Cart";
 
 const NavCartIcon = ({ quantity }) => {
   const [isOpen1, openModal1, closeModal1] = useModal(false);
-  let quant = quantity
+ 
   return (
     <div className="form-inline my-2 my-lg-0">
       <div className="cartContainer">
@@ -15,7 +15,7 @@ const NavCartIcon = ({ quantity }) => {
         <Modal isOpen={isOpen1} closeModal={closeModal1}>
           <Cart />
         </Modal>
-        <div className="cart-items">{ quant === 0 ? <p></p> : quant }</div>
+        <div className="cart-items">{ quantity === 0 ? <p></p> : quantity }</div>
       </div>
     </div>
   );
