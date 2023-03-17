@@ -26,7 +26,7 @@ const ItemDetailContainer = () => {
       }));
       setItems(docs);
     });
-  }, [id]);
+  },[id]);
 
   return (
     <div>

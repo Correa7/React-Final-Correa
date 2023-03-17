@@ -35,10 +35,10 @@ const ItemDetail = ({ title, url, stock, price, id, category, num }) => {
           </h6>
           <p className="card-text">
             The value of the illustrations is expressed in US dollars.
-          </p>
+          </p><br/><br/><br/>
           <h6 className="precio">
             <strong>Stock de {stock} unidades</strong>
-            <br />
+            <br/>
           </h6>
         </div>
         <div>

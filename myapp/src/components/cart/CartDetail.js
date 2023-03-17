@@ -9,7 +9,7 @@ export const CartDetail = ({ prod }) => {
   const { addCart, deleteItem } = useContext(CartContext);
   const { quantity, stock, id } = prod;
 
-  const addItem = () => { 
+  const addItem = () => {
     let newItem = quantity + 1;
 
     if (quantity >= stock) {

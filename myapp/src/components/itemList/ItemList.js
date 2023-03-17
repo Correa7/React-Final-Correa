@@ -2,14 +2,13 @@ import "./ItemList.css";
 import Item from "./Item";
 import { Link } from "react-router-dom";
 
-
 const ItemList = ({category, items})=> { 
 
   let itemsFilter = items.filter((p) => p.categoryId === category);
 
   if (category) {
     return itemsFilter.map((prod) => (
-      <Item 
+      <Item  
         key={prod.id}
         alt={prod.title}
         title={prod.title}

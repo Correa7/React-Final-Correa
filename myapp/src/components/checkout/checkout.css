@@ -12,7 +12,6 @@ h6 {
   justify-content: space-around;
   padding: 40px;
   width: 100%;
-  /* margin-bottom: 10px; */
 }
 .box-element {
   box-shadow: hsl(0, 0%, 80%) 0 0 16px;

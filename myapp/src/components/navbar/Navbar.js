@@ -20,7 +20,6 @@ const NavBar = () => {
   
       <nav className="navbar">
         <NavLogo src={Logo} alt={"Jasmina-Logo"} />
-
         <div id="ul">
           <ul className="nav-ul">
             <li className="nav-item">
@@ -70,7 +69,6 @@ const NavBar = () => {
           </div> 
         </div>
       </nav>
-   
   );
 };
 export default NavBar;

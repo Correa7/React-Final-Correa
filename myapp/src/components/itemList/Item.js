@@ -1,11 +1,11 @@
 import "./ItemList.css";
 import { Link } from "react-router-dom";
 
-const Item = ({ url, alt, title, price, id, num }) => { 
+const Item = ({ url, alt, title, price, id, num }) => {
   return (
     <div key={id} className="card">
       <div className="card-img">
-        <img className='image' src={url} alt={alt} />
+        <img className="image" src={url} alt={alt} />
       </div>
       <h5 className="card-title">{title}</h5>
       <p className="card-text">
@@ -16,7 +16,7 @@ const Item = ({ url, alt, title, price, id, num }) => {
           <strong>Precio: $ {price}</strong>
         </h6>
         <button className="btn btn-secondary me-md-2">
-          <Link className="Link" to={`/detail/${num}`}> 
+          <Link className="Link" to={`/detail/${num}`}>
             View
           </Link>
         </button>

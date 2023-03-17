@@ -3,21 +3,20 @@
   box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: row;
-  justify-content:space-between;
- }
-.nav-ul{
+  justify-content: space-between;
+}
+.nav-ul {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   list-style: none;
- }
+}
 
 .nav-link {
   transition: all 0.25s;
   margin-left: 20px;
-  border-radius: 5%; 
+  border-radius: 5%;
   border: none;
- 
 }
 .nav-link:hover {
   transform: translateY(-1px);
@@ -47,29 +46,28 @@
   justify-content: space-evenly;
 }
 
-@media screen and (max-width:770px){
-  .navbar{
+@media screen and (max-width: 770px) {
+  .navbar {
     align-items: center;
     justify-content: center;
   }
-      .cartContainer {
-        margin-right: 20px;
-      }
-      .logo {
-        width: 120px;
+  .cartContainer {
+    margin-right: 20px;
+  }
+  .logo {
+    width: 120px;
     height: 40px;
     margin-bottom: 10px;
     margin-left: 20px;
-      }
-      .nav-link {
-        margin-left: 20px;
-      }
-      .nav-ul{
-        justify-content:space-around;
-       }
-   
+  }
+  .nav-link {
+    margin-left: 20px;
+  }
+  .nav-ul {
+    justify-content: space-around;
+  }
 }
-@media screen and (max-width:430px){
+@media screen and (max-width: 430px) {
   .navbar {
     justify-content: space-around;
   }
@@ -86,13 +84,12 @@
     margin-left: 0px;
   }
   #ul {
-    justify-content:space-between;
+    justify-content: space-between;
     padding-right: 15px;
   }
 }
 
-@media screen and (max-width:377px){
- 
+@media screen and (max-width: 377px) {
   .logo {
     width: 120px;
     height: 40px;
@@ -100,29 +97,29 @@
     margin-left: 20px;
   }
   #ul {
-    justify-content:space-between;
+    justify-content: space-between;
     padding-right: 15px;
   }
 }
 
-@media screen and (max-width:322px){
-  .navbar{
+@media screen and (max-width: 322px) {
+  .navbar {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
-  .nav-ul{
+  .nav-ul {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-   }
-   .logo {
+  }
+  .logo {
     margin-left: 0px;
     margin-right: 0px;
   }
-  .cartContainer{
+  .cartContainer {
     margin-left: 15px;
   }
 }

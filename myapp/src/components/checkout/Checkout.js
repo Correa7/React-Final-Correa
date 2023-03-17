@@ -1,76 +1,69 @@
 import "./checkout.css";
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
-import {collection, addDoc, getFirestore} from 'firebase/firestore'
+import { collection, addDoc, getFirestore } from "firebase/firestore";
 
 const Checkout = () => {
   const { cart, quantity, total, clearCart } = useContext(CartContext);
-  
-  const carrito=[]
-  cart.map((prod)=>{
-   return carrito.push({title:prod.title, price:prod.price,quantity:prod.quantity,subtotal:prod.subtotal})
-  })
-  const summary ={ total:total, quantity:quantity}
+
+  const products = [];
+  cart.map((prod) => {
+    return products.push({
+      title: prod.title,
+      price: prod.price,
+      quantity: prod.quantity,
+      subtotal: prod.subtotal,
+    });
+  });
+
+  let fecha = new Date();
+  let date = fecha.toLocaleString();
 
   const initialOrder = {
-      name:'',
-      email:'',
-      address:'',
-      city:'',
-      state:'',
-      zipcode:'',
-    }
-  //  const initialOrder={
-  //     buyer:{
-  //       name:'',
-  //       email:'',
-  //       address:'',
-  //       city:'',
-  //       state:'',
-  //       zipcode:'',
-  //     },
-  //     items:[],
-  //     total :0,
-  //     quantity:0
-  //  }
-  
-  const [order, setOrder] = useState(initialOrder)
+    name: "",
+    email: "",
+    address: "",
+    city: "",
+    state: "",
+    zipcode: "",
+  };
+
+  const [buyer, setbuyer] = useState(initialOrder);
   const [id, setId] = useState();
-  
+
   const sendOrder = (e) => {
-    setOrder({
-      ...order, [e.target.name]:e.target.value,
-      Aitems:carrito,
-      Asummary:summary
-      // total :total,
-      // quantity: quantity,}
-    }
-    )
-  }
+    setbuyer({
+      ...buyer,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const order = { buyer, total, quantity, products, date };
 
   const guardarDatos = (e) => {
     e.preventDefault();
-    const db =getFirestore();
-    const formCollection= collection(db, 'checkOut')
-    addDoc(formCollection, order).then((snapshot)=>{
-    setOrder(initialOrder)
-    setId(snapshot.id)
-    clearCart()
-    })
-  }
-  
+    const db = getFirestore();
+    const formCollection = collection(db, "checkOut");
+    addDoc(formCollection, order).then((snapshot) => {
+      setbuyer(initialOrder);
+      setId(snapshot.id);
+      clearCart();
+    });
+  };
 
   return (
     <div className="row">
-       {typeof id !== 'undefined' ? (
-       <div className='envio'>
-        <h4>El formulario se ha enviado con el id:</h4>
-        <br/>
-        <h3><strong>{id}</strong></h3>
-      </div>
+      {typeof id !== "undefined" ? (
+        <div className="envio">
+          <h4>El formulario se ha enviado con el id:</h4>
+          <br />
+          <h3>
+            <strong>{id}</strong>
+          </h3>
+        </div>
       ) : (
-        ''
+        ""
       )}
       <div className="col-lg-6">
         <div className="box-element">
@@ -83,7 +76,7 @@ const Checkout = () => {
                   name="name"
                   placeholder="Name.."
                   onChange={sendOrder}
-                  value={order.name}
+                  value={buyer.name}
                 />
               </div>
               <div className="form-field">
@@ -93,7 +86,7 @@ const Checkout = () => {
                   name="email"
                   placeholder="Email.."
                   onChange={sendOrder}
-                  value={order.email}
+                  value={buyer.email}
                 />
               </div>
             </div>
@@ -108,7 +101,7 @@ const Checkout = () => {
                   name="address"
                   placeholder="Address.."
                   onChange={sendOrder}
-                  value={order.address}
+                  value={buyer.address}
                 />
               </div>
               <div className="form-field">
@@ -118,7 +111,7 @@ const Checkout = () => {
                   name="city"
                   placeholder="City.."
                   onChange={sendOrder}
-                  value={order.city}
+                  value={buyer.city}
                 />
               </div>
               <div className="form-field">
@@ -128,7 +121,7 @@ const Checkout = () => {
                   name="state"
                   placeholder="State.."
                   onChange={sendOrder}
-                  value={order.state}
+                  value={buyer.state}
                 />
               </div>
               <div className="form-field">
@@ -138,7 +131,7 @@ const Checkout = () => {
                   name="zipcode"
                   placeholder="Zip code.."
                   onChange={sendOrder}
-                  value={order.zipcode}
+                  value={buyer.zipcode}
                 />
               </div>
             </div>
@@ -149,7 +142,6 @@ const Checkout = () => {
               className="btn btn-secondary me-md-2"
               type="submit"
               value="Continue"
-            
             />
           </form>
         </div>
@@ -163,7 +155,11 @@ const Checkout = () => {
               {cart.map((prod) => (
                 <div key={prod.id} className="cart-row">
                   <div style={{ flex: "1" }}>
-                    <img className="row-image" src={prod.url} alt={prod.title} />
+                    <img
+                      className="row-image"
+                      src={prod.url}
+                      alt={prod.title}
+                    />
                   </div>
                   <div style={{ flex: "2" }}>
                     <p>{prod.title}</p>

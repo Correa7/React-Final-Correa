@@ -1,5 +1,5 @@
 import "./navbar.css";
-import { useModal } from "../../Hooks/useModal";
+import { useModal } from "../../hooks/useModal";
 import Modal from "../modals/Modal";
 import Cart from "../cart/Cart";
 
