@@ -1,8 +1,8 @@
 import "./navbar.css";
-import { useModal } from "../../hooks/useModal";
+import { useModal } from "../../Hooks/useModal";
 import Modal from "../modals/Modal";
 import Cart from "../cart/Cart";
-
+ 
 const NavCartIcon = ({ quantity }) => {
   const [isOpen1, openModal1, closeModal1] = useModal(false);
  
