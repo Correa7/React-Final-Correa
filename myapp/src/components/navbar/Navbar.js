@@ -4,7 +4,7 @@ import NavLogo from "./NavLogo";
 import Logo from "../../img/logo.png";
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import { CartContext } from "../../context/CartContext";
+import { CartContext } from "../../context/CartContext"; 
 
 const NavBar = () => {
   const { quantity } = useContext(CartContext);
